@@ -1,0 +1,15 @@
+version: '3'
+services:
+  api:
+    build: .
+    image: node:12
+    command: ["/bin/bash", "/app/run.sh"]
+    ports:
+    - "1337:1337"
+    volumes:
+    - .:/app
+    environment:
+    - GOOGLE_API=https://maps.googleapis.com/maps/api/place/textsearch/json
+    - GOOGLE_KEY=AIzaSyAEzPR5KlLwVamQ7_ipGdaPwJCMrba4Khk
+    - OPEN_WEATHER_APP_ID=b8164e4b61da1f9c16d54430410d4be5
+    network_mode: host
