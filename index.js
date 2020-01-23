@@ -6,6 +6,15 @@ const controllers = requireDir('./controllers');
 
 const services = requireDir('./services');
 
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
+
+
 for (const controller of Object.keys(controllers)){
     for (const route of Object.keys(controllers[controller])){
         const [method, path] = route.split(" ");
