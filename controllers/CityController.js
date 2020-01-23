@@ -117,11 +117,17 @@ const result = {
 module.exports = {
 
     'GET /city/search': async (req, res) => {
-      //   const result = await request({
-      //      method: 'get',
-      //      uri: `${process.env.GOOGLE_API}?query=${req.query.q}&key=${process.env.GOOGLE_KEY}`,
-      //      json: true
-      //   });
-        return res.status(200).json(result ? result.results.map(result => result.formatted_address) : []);
+         const result = await request({
+            method: 'get',
+            uri: `${process.env.GOOGLE_API}?query=${req.query.q}&key=${process.env.GOOGLE_KEY}`,
+            json: true
+         });
+
+         return res.status(200).json(result ? 
+            result.results.map(result => { return {
+               name: result.formatted_address.split(',').slice(-3).join(', '),
+               lat: result.geometry.location.lat,
+               lon: result.geometry.location.lng
+            }}) : []);
     }
 }
