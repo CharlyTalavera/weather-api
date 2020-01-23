@@ -13,7 +13,7 @@ module.exports = {
     getByCoordinates: function (lat, lon) {
         return request({
             method: 'get',
-            uri: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}lon=${lon}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
+            uri: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
             json: true
         })
     }
