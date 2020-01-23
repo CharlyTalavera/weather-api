@@ -17,6 +17,7 @@ module.exports = {
         }
         if(req.query.lat && req.query.lon){
             const weatherInfo = await WeatherService.getByCoordinates(req.query.lat, req.query.lon);
+            weatherInfo.main.temp = Math.round(weatherInfo.main.temp - 273.15, 2); // Convert from kelvin to celsius
             return res.status(200).json(weatherInfo);
         }
 
