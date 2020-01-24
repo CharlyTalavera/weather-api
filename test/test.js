@@ -63,10 +63,10 @@ describe('Weather', function(){
             });
         })
     })
-    describe('/city with name', function (){
+    describe('/current/city with name', function (){
         it('Should return valid weather info with correct status code', function(){
             request(server)
-            .get('/city?name=Ezeiza')
+            .get('/current/city?name=Ezeiza')
             .expect('Content-Type', /json/)
             .expect(200)
             .end(function(err, res) {
@@ -77,10 +77,10 @@ describe('Weather', function(){
             });
         })
     })  
-    describe('/city with lat and lon', function (){
+    describe('/current/city with lat and lon', function (){
         it('Should return valid weather info with correct status code', function(){
             request(server)
-            .get('/city?lat=-34.85&lon=-58.52')
+            .get('/current/city?lat=-34.85&lon=-58.52')
             .expect('Content-Type', /json/)
             .expect(200)
             .end(function(err, res) {

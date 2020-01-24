@@ -2,18 +2,34 @@ const request = require('request-promise')
 
 
 module.exports = {
-    getByCityName: function (city, country) {
+    currentByCityname: function (city, country) {
         return request({
             method: 'get',
-            uri: `${process.env.WEATHER_API_URL}?q=${city},${country}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
+            uri: `${process.env.WEATHER_API_URL}/weather?q=${city},${country}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
             json: true
         })
     },
 
-    getByCoordinates: function (lat, lon) {
+    currentByCoodinates: function (lat, lon) {
         return request({
             method: 'get',
-            uri: `${process.env.WEATHER_API_URL}?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
+            uri: `${process.env.WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
+            json: true
+        })
+    },
+
+    forecastByCitycame: function (city, country) {
+        return request({
+            method: 'get',
+            uri: `${process.env.WEATHER_API_URL}/forecast?q=${city},${country}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
+            json: true
+        })
+    },
+
+    forecastByCoordinates: function (lat, lon) {
+        return request({
+            method: 'get',
+            uri: `${process.env.WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
             json: true
         })
     }

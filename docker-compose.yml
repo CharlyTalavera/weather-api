@@ -11,7 +11,7 @@ services:
     environment:
     - GOOGLE_API_URL=https://maps.googleapis.com/maps/api/place/textsearch/json
     - IP_URL=http://ip-api.com/json
-    - WEATHER_API_URL=http://api.openweathermap.org/data/2.5/weather
+    - WEATHER_API_URL=http://api.openweathermap.org/data/2.5
     - BASE_ENDPOINT=/weather/api
     - VERSION=v1
     - GOOGLE_KEY=AIzaSyAEzPR5KlLwVamQ7_ipGdaPwJCMrba4Khk
