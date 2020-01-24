@@ -7,18 +7,18 @@ module.exports = {
         const ipInfo = await IpService.getLocation(ip);
 
         const weatherInfo = await WeatherService.getByCityName(ipInfo.city, ipInfo.countryCode);
-        return res.status(200).json(weatherInfo)
+        return res.status(200).json(new Weather(weatherInfo))
     },
 
     'GET /city': async (req, res) => {
         if(req.query.name){
             const weatherInfo = await WeatherService.getByCityName(req.query.name);
-            return res.status(200).json(weatherInfo);
+            return res.status(200).json(new Weather(weatherInfo));
         }
         if(req.query.lat && req.query.lon){
             const weatherInfo = await WeatherService.getByCoordinates(req.query.lat, req.query.lon);
-            weatherInfo.main.temp = Math.round(weatherInfo.main.temp - 273.15, 2); // Convert from kelvin to celsius
-            return res.status(200).json(weatherInfo);
+
+            return res.status(200).json(new Weather(weatherInfo));
         }
 
         return res.status(400).json({
