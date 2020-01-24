@@ -5,7 +5,7 @@ module.exports = {
     getLocation: function (ip){
         return request ({
             method: 'get',
-            uri: `http://ip-api.com/json/${ip}`,
+            uri: `${process.env.IP_URL}/${ip}`,
             json: true
         });
     }

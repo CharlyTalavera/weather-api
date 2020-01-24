@@ -5,7 +5,7 @@ module.exports = {
     getByCityName: function (city, country) {
         return request({
             method: 'get',
-            uri: `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
+            uri: `${process.env.WEATHER_API_URL}?q=${city},${country}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
             json: true
         })
     },
@@ -13,7 +13,7 @@ module.exports = {
     getByCoordinates: function (lat, lon) {
         return request({
             method: 'get',
-            uri: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
+            uri: `${process.env.WEATHER_API_URL}?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_APP_ID}`,
             json: true
         })
     }
