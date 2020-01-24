@@ -10,7 +10,11 @@ services:
     volumes:
     - .:/app
     environment:
-    - GOOGLE_API=https://maps.googleapis.com/maps/api/place/textsearch/json
+    - GOOGLE_API_URL=https://maps.googleapis.com/maps/api/place/textsearch/json
+    - IP_URL=http://ip-api.com/json
+    - WEATHER_API_URL=http://api.openweathermap.org/data/2.5/weather
+    - BASE_ENDPOINT=/weather/api
+    - VERSION=v1
     - GOOGLE_KEY=AIzaSyAEzPR5KlLwVamQ7_ipGdaPwJCMrba4Khk
     - OPEN_WEATHER_APP_ID=b8164e4b61da1f9c16d54430410d4be5
     network_mode: host

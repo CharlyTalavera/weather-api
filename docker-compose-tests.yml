@@ -11,4 +11,6 @@ services:
     - .:/app
     environment:
     - NODE_ENV=TESTING
+    - BASE_ENDPOINT=
+    - VERSION=
     network_mode: host
