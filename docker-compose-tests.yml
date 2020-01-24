@@ -1,12 +1,9 @@
 version: '3'
 services:
   api:
-    build: .
     image: node:12
     command: ["npm", "run", "test"]
     working_dir: "/app"
-    ports:
-    - "1337:1337"
     volumes:
     - .:/app
     environment:
